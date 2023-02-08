@@ -1,0 +1,137 @@
+body {
+  text-align: center;
+  background-color: rgb(137, 207, 245);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    background-color: rgb(179, 202, 244);
+  }
+}
+
+h1 {
+  padding-bottom: 20px;
+  margin: 0 0 0 50px;
+  color: rgb(49, 9, 59);
+  text-align: center;
+  text-decoration: double;
+  font-family: sans-serif;
+  font-size: 100px;
+}
+
+h1 {
+  animation: colorFade 10s infinite;
+}
+
+@keyframes colorFade {
+  0% {
+    filter: drop-shadow(6px 6px 6px rgb(255, 150, 255));
+  }
+  20% {
+    filter: drop-shadow(6px 6px 6px rgb(255, 150, 100));
+  }
+  40% {
+    filter: drop-shadow(6px 6px 6px rgb(255, 200, 200));
+  }
+  60% {
+    filter: drop-shadow(6px 6px 6px rgb(255, 150, 250));
+  }
+  80% {
+    filter: drop-shadow(6px 6px 6px rgb(100, 110, 255));
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  padding: 20px;
+  margin: auto;
+  border: 2px solid rgb(251, 162, 236);
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  /* width: 50%; */
+  max-width: 400px;
+  min-width: 400px;
+  background-color: rgb(198, 242, 153);
+}
+
+.box {
+  border: 3px solid rgb(65, 227, 235);
+  /* padding: 20px; */
+  height: 75px;
+  width: 75px;
+  /* margin: 0 auto; */
+}
+
+.buttons {
+  padding: 30px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: auto;
+  font-size: 20px;
+  background-color: rgb(228, 241, 89);
+}
+
+text {
+  margin: 0 auto;
+  display: inline;
+  padding: 30px;
+}
+
+#boxTop {
+  padding: 10px 20px;
+  margin: 0 20px;
+  background-color: rgb(158, 142, 233);
+  display: block;
+  width: 75px;
+  font-size: 30px;
+  animation: colorFade 10s infinite;
+}
+
+#boxBottom {
+  padding: 10px 20px;
+  margin: 0 20px;
+  background-color: rgb(158, 142, 233);
+  display: block;
+  width: 75px;
+  font-size: 30px;
+  animation: colorFade 10s infinite;
+}
+
+.playerScore {
+  display: flex;
+  justify-content: center;
+}
+
+h3 {
+  font-family: cursive;
+  font-size: 20px;
+  font-weight: 500px;
+  color: rgb(54, 33, 44);
+}
+
+#b1 {
+  animation: colorFade 10s infinite;
+}
+
+#b3 {
+  animation: colorFade 10s infinite;
+}
+
+#b5 {
+  animation: colorFade 10s infinite;
+}
+
+#b7 {
+  animation: colorFade 10s infinite;
+}
