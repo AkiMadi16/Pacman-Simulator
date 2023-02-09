@@ -75,11 +75,24 @@ h1 {
   justify-content: center;
 }
 
+.commandGuide {
+  padding: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
 button {
   padding: 10px 20px;
   margin: auto;
   font-size: 20px;
   background-color: rgb(228, 241, 89);
+}
+
+p {
+  word-wrap: normal;
+  padding: 5px;
 }
 
 text {
