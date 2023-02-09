@@ -1,0 +1,23 @@
+{
+  "name": "pacman-simulator",
+  "version": "1.0.0",
+  "description": "Code-Challenge-1 Code problem details:",
+  "main": "pacman.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkiMadi16/Pacman-Simulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkiMadi16/Pacman-Simulator/issues"
+  },
+  "homepage": "https://github.com/AkiMadi16/Pacman-Simulator#readme",
+  "dependencies": {
+    "jest": "^29.4.2"
+  }
+}
