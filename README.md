@@ -3,7 +3,7 @@ unit tests on pacMan.test.js
 
 Check my PACMAN GAME BOARD
 
-## :computer: [Click here](https://github.com/AkiMadi16/Pacman-Simulator/) to see my live project.
+## :computer: [Click here](https://akimadi16.github.io/Pacman-Simulator/) to see my live project.
 
 # Code-Challenge-1
 
