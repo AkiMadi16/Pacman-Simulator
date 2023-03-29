@@ -1,96 +1,165 @@
-var pacMan = "🥷🏼";
-var placeCommandButton = document.querySelector("#place");
-var leftCommand = document.querySelector("#rotateLeft");
-var rightCommand = document.querySelector("#rotateRight");
-var moveCommand = document.querySelector("#move");
-var reportCommand = document.querySelector("#report");
-var placeUserInput = document.querySelector("#placePacMan");
-var showCurrentLocation = document.querySelector("#currentLocation");
-var box = document.querySelector(".box");
+let pacMan = "🥷🏼";
+let placeCommandButton = document.querySelector("#place");
+let leftCommand = document.querySelector("#rotateLeft");
+let rightCommand = document.querySelector("#rotateRight");
+let moveCommand = document.querySelector("#move");
+let reportCommand = document.querySelector("#report");
+let userInput = document.querySelector("#placePacMan");
+let showCurrentLocation = document.querySelector("#currentLocation");
+let boxes = document.querySelectorAll(".box");
 
-var placeX, placeY, placeF;
+//define the placePacMan function here
+let x, y, F;
+let directions = {
+  NORTH: "0deg",
+  EAST: "90deg",
+  SOUTH: "180deg",
+  WEST: "270deg",
+};
 
-var directions = [
-  {
-    face: "NORTH",
-    angle: "0deg",
-  },
-  { face: "EAST", angle: "90deg" },
-  { face: "SOUTH", angle: "180deg" },
-  { face: "WEST", angle: "270deg" },
-];
-var facingDirection = directions
-  .filter((a) => a.face === placeF)
-  .map((b) => b.angle);
+function placePacMan() {
+  if (userInput.value.startsWith("PLACE")) {
+    //process each command to determine PacMan's initial location and facing direction.
+    let input = userInput.value;
+    let coordinates = input.match(/[0-4]+/g);
+    let facingDirection = input
+      .substring(input.length - 5)
+      .match(/(NORTH|EAST|SOUTH|WEST)/g);
+    x = parseInt(coordinates[0]);
+    y = parseInt(coordinates[1]);
+    F = facingDirection.join("");
 
-placeCommandButton.addEventListener("click", function (event) {
-  if (placeX !== undefined && placeY !== undefined && placeF !== undefined) {
-    document.querySelector(
-      `#x${placeX}y${placeY}`
-    ).textContent = `${placeX},${placeY}`;
-
-    document.querySelector(
-      `#x${placeX}y${placeY}`
-    ).style.transform = `rotate(${facingDirection})`;
-  }
-
-  let userInput = placeUserInput.value;
-  let coordinates = userInput.match(/[0-4]+/g);
-  let facingDirection = userInput
-    .substring(userInput.length - 5)
-    .match(/(NORTH|EAST|SOUTH|WEST)/g)[0];
-
-  placeX = Number(coordinates[0]);
-  placeY = Number(coordinates[1]);
-  placeF = facingDirection;
-
-  let coordinatesOfBox = `x${placeX}y${placeY}`;
-  // console.log(coordinatesOfBox);
-  let box = document.querySelector(`#${coordinatesOfBox}`);
-  box.textContent = pacMan;
-});
-
-moveCommand.addEventListener("click", function (event) {
-  event.preventDefault();
-  document.querySelector(
-    `#x${placeX}y${placeY}`
-  ).textContent = `${placeX},${placeY}`;
-
-  if (placeF === "NORTH") {
-    placeY = placeY + 1;
-    box.style.transform = `rotate(0deg)`;
-  }
-
-  if (placeF === "EAST") {
-    placeX = placeX + 1;
-    box.style.transform = `rotate(90deg)`;
-  }
-  if (placeF === "SOUTH") {
-    placeY = placeY - 1;
-    box.style.transform = `rotate(180deg)`;
-  }
-  if (placeF === "WEST") {
-    placeX = placeX - 1;
-    box.style.transform = `rotate(270deg)`;
-  }
-
-  placeX = placeX > 4 ? 4 : placeX;
-  placeX = placeX < 0 ? 0 : placeX;
-  placeY = placeY > 4 ? 4 : placeY;
-  placeY = placeY < 0 ? 0 : placeY;
-
-  let newCoordinates = `x${placeX}y${placeY}`;
-  let newBox = document.querySelector(`#${newCoordinates}`);
-  newBox.textContent = pacMan;
-});
-
-let boxes = document.querySelector(".box");
-rightCommand.addEventListener("click", function (event) {
-  event.preventDefault();
-  for (let i = 0; i < boxes.length; i++) {
-    if (boxes[i].textContent === pacMan) {
-      boxes[i] = event.target;
-      console.log(boxes[i]);
+    for (let i = 0; i < boxes.length; i++) {
+      boxes[i].textContent = "";
+      boxes[i].classList.remove("active");
+      showCurrentLocation.textContent = "";
     }
+
+    //Update the appropriate box on the game board with PacMan's icon and facing direction
+
+    let box = document.querySelector(`#x${x}y${y}`);
+    box.textContent = pacMan;
+    box.classList.add("active");
+    box.style.transform = `rotate(${directions[facingDirection]})`;
   }
+}
+// call the placePacMan function when the PLACE button is clicked
+placeCommandButton.addEventListener("click", placePacMan);
+
+//Move pacman
+function movePacMan() {
+  // if (userInput.value.includes(F)) {
+  switch (F) {
+    case "NORTH":
+      y++;
+      break;
+
+    case "EAST":
+      x++;
+      break;
+
+    case "SOUTH":
+      y--;
+      break;
+
+    case "WEST":
+      x--;
+      break;
+  }
+
+  // make sure PacMan stays on the game board
+  x = x > 4 ? 4 : x;
+  x = x < 0 ? 0 : x;
+  y = y > 4 ? 4 : y;
+  y = y < 0 ? 0 : y;
+
+  //Clearoff boxes to update the box with moved PacMan
+  for (let i = 0; i < boxes.length; i++) {
+    boxes[i].textContent = "";
+    boxes[i].classList.remove("active");
+    showCurrentLocation.textContent = "";
+  }
+
+  let newBox = document.querySelector(`#x${x}y${y}`);
+  newBox.textContent = pacMan;
+  newBox.classList.add("active");
+  newBox.style.transform = `rotate(${directions[F]})`;
+}
+
+moveCommand.addEventListener("click", movePacMan);
+
+function rotateRightPacMan() {
+  // if (userInput.value.includes(F)) {
+  //Rotate PacMan right
+  switch (F) {
+    case "NORTH":
+      F = "EAST";
+      break;
+    case "EAST":
+      F = "SOUTH";
+      break;
+    case "SOUTH":
+      F = "WEST";
+      break;
+    case "WEST":
+      F = "NORTH";
+      break;
+  }
+
+  let currentBox = document.querySelector(`.active`);
+  currentBox.style.transform = `rotate(${directions[F]})`;
+  // }
+}
+
+rightCommand.addEventListener("click", rotateRightPacMan);
+
+function rotateLeftPacMan() {
+  //Rotate PacMan right
+  switch (F) {
+    case "NORTH":
+      F = "WEST";
+      break;
+    case "EAST":
+      F = "NORTH";
+      break;
+    case "SOUTH":
+      F = "EAST";
+      break;
+    case "WEST":
+      F = "SOUTH";
+      break;
+  }
+
+  let currentBox = document.querySelector(`.active`);
+  currentBox.style.transform = `rotate(${directions[F]})`;
+}
+
+leftCommand.addEventListener("click", rotateLeftPacMan);
+
+reportCommand.addEventListener("click", currentLocation);
+function currentLocation() {
+  let showCurrentBox = document.querySelector(`.active`);
+  if (document.querySelector(`#x${x}y${y}`) === showCurrentBox) {
+    showCurrentLocation.textContent = `${x},${y},${F}`;
+  }
+}
+
+const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "F"];
+
+let btn = document.getElementById("background");
+
+btn.addEventListener("click", (event) => {
+  console.log(event);
+
+  let randomColor = "#";
+
+  for (var i = 0; i < 6; i++) {
+    randomColor += hex[getRandomNumber()];
+  }
+
+  document.body.style.backgroundColor = randomColor;
 });
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * hex.length);
+}
