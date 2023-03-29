@@ -1,4 +1,4 @@
-let pacMan = "🥷🏼";
+let pacMan = "😵";
 let placeCommandButton = document.querySelector("#place");
 let leftCommand = document.querySelector("#rotateLeft");
 let rightCommand = document.querySelector("#rotateRight");

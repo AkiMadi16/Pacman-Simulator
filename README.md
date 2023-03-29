@@ -1,9 +1,10 @@
 Check my Code from pacMan_test.js
+
 unit tests on pacMan.test.js
 
 Check my PACMAN GAME BOARD
 
-## :computer: [Click here](https://akimadi16.github.io/Pacman-Simulator/) to see my live project.
+## 💫 [Click here](https://akimadi16.github.io/Pacman-Simulator/) to see my live project.
 
 # Code-Challenge-1
 
