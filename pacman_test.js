@@ -1,26 +1,23 @@
 function placePacMan(userInput) {
-  console.log(userInput);
-  // let validInput = /^(PLACE)[0-4],[0-4],(NORTH|EAST|SOUTH|WEST)$/.test(
-  //   userInput[0]
-  // );
-  // console.log(validInput);
+  // console.log(userInput);
+
   let directions = ["NORTH", "EAST", "SOUTH", "WEST"];
   let [X, Y, F] = userInput[0].split(" ")[1].split(",");
 
-  if (userInput) {
+  if (userInput[0].startsWith("PLACE")) {
     // ['2', '3', 'NORTH']
 
     for (let i = 1; i <= userInput.length; i++) {
       let command = "userInput[i]";
-      console.log(userInput[i]);
+      // console.log(userInput[i]);
 
       switch (command) {
         case "MOVE":
           switch (F) {
             case "NORTH":
+              console.log(command);
               let northY = parseInt(Y) + 1;
               Y = northY < 5 ? northY : 4;
-
               break;
             case "EAST":
               let eastX = parseInt(X) + 1;
@@ -41,14 +38,13 @@ function placePacMan(userInput) {
         case "LEFT":
           F = directions.at(directions.indexOf(F) - 1);
           break;
-        case "default":
-          console.log("error");
+
+        case "REPORT":
           break;
       }
     }
-    return `Output: ${X}, ${Y}, ${F}`;
   }
-  // return `Output: ${X}, ${Y}, ${F}`;
+  return `Output: ${X}, ${Y}, ${F}`;
 }
 
 console.log(placePacMan(["PLACE 0,0,NORTH", "MOVE", "REPORT"]));
