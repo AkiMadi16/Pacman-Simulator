@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color: rgb(237, 179, 208);
+  background-color: rgb(15, 24, 59);
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
@@ -9,19 +9,19 @@ body {
   width: 40%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   body {
-    background-color: rgb(179, 202, 244);
+    background-color: rgb(111, 183, 205);
   }
 }
 
 h1 {
   padding-bottom: 20px;
   margin: 0 0 0 50px;
-  color: rgb(49, 9, 59);
+  color: rgb(111, 183, 205);
   text-align: center;
   text-decoration: double;
-  font-family: sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 100px;
 }
 
@@ -47,43 +47,11 @@ h1 {
   }
 }
 
-.board {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  padding: 20px;
-  margin: auto;
-  border: 2px solid rgb(251, 162, 236);
-  font-family: sans-serif;
-  font-size: 20px;
-  text-align: center;
-  /* width: 50%; */
-  max-width: 400px;
-  min-width: 400px;
-  background-color: rgb(198, 242, 153);
-}
-
-img {
-  max-width: 50px;
-  min-width: 50px;
-}
-
-.box {
-  border: 3px solid rgb(65, 227, 235);
-  /* padding: 20px; */
-  height: 75px;
-  width: 75px;
-  /* margin: 0 auto; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .buttons {
-  padding: 30px;
-  height: 50px;
+  padding: 4em;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .commandGuide {
@@ -92,24 +60,25 @@ img {
   display: flex;
   justify-content: center;
   margin: auto;
+  color: rgb(111, 183, 205);
 }
 
-button {
-  padding: 10px 20px;
-  margin: auto;
-  font-size: 20px;
-  background-color: rgb(228, 241, 89);
+input {
+  margin-bottom: 0.35em;
+  height: fit-content;
 }
 
 p {
   word-wrap: normal;
   padding: 5px;
+  color: rgb(111, 183, 205);
 }
 
 text {
   margin: 0 auto;
   display: inline;
   padding: 30px;
+  color: rgb(111, 183, 205);
 }
 
 #boxTop {
@@ -132,16 +101,11 @@ text {
   animation: colorFade 10s infinite;
 }
 
-.playerScore {
-  display: flex;
-  justify-content: center;
-}
-
-h3 {
+h2 {
   font-family: cursive;
   font-size: 20px;
   font-weight: 500px;
-  color: rgb(54, 33, 44);
+  color: rgb(111, 183, 205);
 }
 
 #b1 {
@@ -158,4 +122,242 @@ h3 {
 
 #b7 {
   animation: colorFade 10s infinite;
+}
+
+/* Styling for glow button effect */
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+:root {
+  --glow-color: hsl(186 100% 69%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.glowing-btn {
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  margin: auto;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  /* animation: border-flicker 2s linear infinite; */
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+/* .faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+} */
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn {
+    font-size: 1em;
+  }
+}
+
+/* Board and box */
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  padding: 20px;
+  margin: auto;
+  border: 2px solid rgb(243, 238, 242);
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  /* width: 50%; */
+  max-width: 400px;
+  min-width: 400px;
+  background-color: rgb(180, 229, 240);
+}
+
+.box {
+  border: 3px solid rgb(65, 227, 235);
+  /* padding: 20px; */
+  height: 75px;
+  width: 75px;
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

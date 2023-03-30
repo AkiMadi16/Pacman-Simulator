@@ -1,4 +1,4 @@
-let pacMan = "😵";
+let pacMan = "😃";
 let placeCommandButton = document.querySelector("#place");
 let leftCommand = document.querySelector("#rotateLeft");
 let rightCommand = document.querySelector("#rotateRight");
@@ -53,15 +53,12 @@ function movePacMan() {
     case "NORTH":
       y++;
       break;
-
     case "EAST":
       x++;
       break;
-
     case "SOUTH":
       y--;
       break;
-
     case "WEST":
       x--;
       break;
@@ -137,9 +134,10 @@ function rotateLeftPacMan() {
 leftCommand.addEventListener("click", rotateLeftPacMan);
 
 reportCommand.addEventListener("click", currentLocation);
+
 function currentLocation() {
   let showCurrentBox = document.querySelector(`.active`);
-  if (document.querySelector(`#x${x}y${y}`) === showCurrentBox) {
+  if (showCurrentBox) {
     showCurrentLocation.textContent = `${x},${y},${F}`;
   }
 }

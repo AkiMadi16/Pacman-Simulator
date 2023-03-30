@@ -11,38 +11,39 @@
 </head>
 <body>
   <div> <p>Don't click genie!</p>
-    <button id="background">🧞‍♀️</button>
+    <button class='glowing-btn'  id="background">🧞‍♀️</button>
   </div>
 
     <h1>Pacman Simulator</h1>
    
     <h2>User Guide:-</h2>
-    <p>command guide for user X & Y are cordinates and F (NORTH, EAST, SOUTH, WEST)
-      Report will show you PAC-Man's current location.
-      Left button will rotate PacMan anticlockwise facing to "F" and RIGHT will rotate clockwise and move will move PacMan to the faced direction
+    <p>command guide - select a starting point from drop-down list.
+      END will show current location
     </p>
 
     <div class="commandGuide">
       
-      <div>
-        <img id="pm" src="https://i.imgur.com/d1STD4C.png" alt="" srcset="">
-        <label for="">START:</label>
-        <input type="text" id="placePacMan" placeholder="PLACE X,Y,F">
-        <button id="place"><i class="fa-solid fa-user"></i></button>
+      <div class="container">
+          <label for="">START:</label>
+          <input type="text" id="placePacMan" list="choice" name="choice" placeholder="PLACE X,Y,F">
+          <datalist id = "choice">
+            <option value="PLACE 0,0,NORTH">
+            <option value="PLACE 1,2,EAST">
+            <option value="PLACE 2,4,SOUTH">
+            </datalist>
+        <button class='glowing-btn' id="place"><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></button>
       </div>
         <div>
           <label for="">END:</label>
-          
-          <button id="report"><i class="fa-solid fa-flag-checkered"></i></button>
+          <button class='glowing-btn'   id="report"><i class="fa-solid fa-flag-checkered"></i></button>
         </div>
-        <div><span type="text" id="currentLocation" ></span></div>
-       
-       <button id="rotateRight"><i class="fa-solid fa-rotate-right"></i></button>
+        <div><span type="text" id="currentLocation"></span></div>
     </div>
 
     <div class="buttons">
-        <button id="move"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
-        <button id="rotateLeft"><i class="fa-solid fa-rotate-left"></i></button>
+        <button class='glowing-btn' id="move"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+        <button class='glowing-btn' id="rotateRight"><i class="fa-solid fa-rotate-right"></i></button>
+        <button class='glowing-btn' id="rotateLeft"><i class="fa-solid fa-rotate-left"></i></button>
  
     </div>
 
