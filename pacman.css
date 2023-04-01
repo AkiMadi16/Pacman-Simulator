@@ -1,27 +1,20 @@
 body {
   text-align: center;
   background-color: rgb(15, 24, 59);
-  background-repeat: no-repeat;
-  background-size: cover;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
-}
-
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: rgb(111, 183, 205);
-  }
+  align-items: center;
+  font-family: "Macondo", cursive;
 }
 
 h1 {
-  padding-bottom: 20px;
-  margin: 0 0 0 50px;
+  padding-bottom: 10px;
+
   color: rgb(111, 183, 205);
   text-align: center;
   text-decoration: double;
-  font-family: "Raleway", sans-serif;
+  font-family: "Macondo", cursive;
   font-size: 100px;
 }
 
@@ -64,7 +57,7 @@ h1 {
 }
 
 input {
-  margin-bottom: 0.35em;
+  padding: 1em;
   height: fit-content;
 }
 
@@ -99,13 +92,6 @@ text {
   width: 75px;
   font-size: 30px;
   animation: colorFade 10s infinite;
-}
-
-h2 {
-  font-family: cursive;
-  font-size: 20px;
-  font-weight: 500px;
-  color: rgb(111, 183, 205);
 }
 
 #b1 {
@@ -145,8 +131,7 @@ h2 {
   border-radius: 0.45em;
   background: none;
   perspective: 2em;
-  margin: auto;
-  font-family: "Raleway", sans-serif;
+  font-family: "Macondo", cursive;
   font-size: 2em;
   font-weight: 900;
   letter-spacing: 1em;
@@ -331,6 +316,21 @@ h2 {
   .glowing-btn {
     font-size: 1em;
   }
+  body {
+    font-size: 80px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .glowing-btn {
+    font-size: 30px;
+  }
+  body {
+    font-size: 30px;
+  }
+  p {
+    font-size: 20px;
+  }
 }
 
 /* Board and box */
@@ -339,25 +339,24 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  padding: 20px;
+  gap: 5px;
+  padding: 5px;
   margin: auto;
   border: 2px solid rgb(243, 238, 242);
-  font-family: sans-serif;
-  font-size: 20px;
-  text-align: center;
   /* width: 50%; */
-  max-width: 400px;
-  min-width: 400px;
+  max-width: 550px;
+  min-width: 550px;
   background-color: rgb(180, 229, 240);
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
 }
 
 .box {
   border: 3px solid rgb(65, 227, 235);
-  /* padding: 20px; */
-  height: 75px;
-  width: 75px;
-  /* margin: 0 auto; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100px;
+  width: 100px;
+  font-family: sans-serif;
+  font-size: 75px;
+  text-align: center;
 }
