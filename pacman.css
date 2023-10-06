@@ -42,9 +42,11 @@ h1 {
 
 .buttons {
   padding: 4em;
-  display: flex;
+  /* display: flex; */
   justify-content: space-around;
   align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
 }
 
 .commandGuide {
@@ -65,49 +67,6 @@ p {
   word-wrap: normal;
   padding: 5px;
   color: rgb(111, 183, 205);
-}
-
-text {
-  margin: 0 auto;
-  display: inline;
-  padding: 30px;
-  color: rgb(111, 183, 205);
-}
-
-#boxTop {
-  padding: 10px 20px;
-  margin: 0 20px;
-  background-color: rgb(158, 142, 233);
-  display: block;
-  width: 75px;
-  font-size: 30px;
-  animation: colorFade 10s infinite;
-}
-
-#boxBottom {
-  padding: 10px 20px;
-  margin: 0 20px;
-  background-color: rgb(158, 142, 233);
-  display: block;
-  width: 75px;
-  font-size: 30px;
-  animation: colorFade 10s infinite;
-}
-
-#b1 {
-  animation: colorFade 10s infinite;
-}
-
-#b3 {
-  animation: colorFade 10s infinite;
-}
-
-#b5 {
-  animation: colorFade 10s infinite;
-}
-
-#b7 {
-  animation: colorFade 10s infinite;
 }
 
 /* Styling for glow button effect */
@@ -321,7 +280,7 @@ text {
   }
 }
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .glowing-btn {
     font-size: 30px;
   }
@@ -331,7 +290,7 @@ text {
   p {
     font-size: 20px;
   }
-}
+} */
 
 /* Board and box */
 

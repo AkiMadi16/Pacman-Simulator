@@ -1,16 +1,10 @@
 function placePacMan(userInput) {
-  // console.log(userInput);
-
-  // check for a valid input as well
-
   if (userInput[0].startsWith("PLACE")) {
     const directions = ["NORTH", "EAST", "SOUTH", "WEST"];
     let [X, Y, F] = userInput[0].split(" ")[1].split(",");
-    // ['2', '3', 'NORTH']
 
     for (let i = 1; i < userInput.length; i++) {
       const command = userInput[i];
-      // console.log(userInput[i]);
 
       switch (command) {
         case "MOVE":
@@ -56,20 +50,5 @@ console.log(placePacMan(["PLACE 0,0,NORTH", "LEFT", "REPORT"]));
 console.log(
   placePacMan(["PLACE 1,2,EAST", "MOVE", "MOVE", "LEFT", "MOVE", "REPORT"])
 );
-// console.log(
-//   placePacMan(["1,2,EAST", "MOVE", "MOVE", "LEFT", "MOVE", "REPORT"])
-// );
-// console.log(
-//   placePacMan([
-//     "PLACE 1,2,EAST",
-//     "RIGHT",
-//     "MOVE",
-//     "LEFT",
-//     "MOVE",
-//     "LEFT",
-//     "REPORT",
-//   ])
-//  Output: PacMan is not placed
-//Output: 2, 1, NORTH
 
 module.exports = placePacMan;
